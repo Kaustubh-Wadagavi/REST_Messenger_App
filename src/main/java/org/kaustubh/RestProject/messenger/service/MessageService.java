@@ -25,7 +25,7 @@ public class MessageService {
 	}
 
 	public Message addMessage(Message message) {
-		message.setId(messages.size() - 1);
+		message.setId(messages.size() + 1);
 		messages.put(message.getId(), message);
 		return message;
 	}
