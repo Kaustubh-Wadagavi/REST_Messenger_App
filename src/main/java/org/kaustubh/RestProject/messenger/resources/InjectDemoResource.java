@@ -16,15 +16,15 @@ import javax.ws.rs.core.UriInfo;
 @Consumes(MediaType.TEXT_PLAIN)
 @Produces(MediaType.TEXT_PLAIN)
 public class InjectDemoResource {
-	
+
 	@GET
 	@Path("annotations")
 	public String getParamsUsingAnnotations(@MatrixParam("param")String matrixParam,
-											@HeaderParam("customHeaderValue") String header,
-											@CookieParam("name") String cookieParam ) {
+			@HeaderParam("customHeaderValue") String header,
+			@CookieParam("name") String cookieParam ) {
 		return "Matrix Param :" + matrixParam+ " " + "Header Value:" + header + "name" + cookieParam;
 	}
-	
+
 	@GET
 	@Path("context")
 	public String getParamsUsingContext(@Context UriInfo uriInfo, @Context HttpHeaders headers) {
@@ -32,5 +32,5 @@ public class InjectDemoResource {
 		String cookies = headers.getCookies().toString();
 		return path + cookies;
 	}
-	
+
 }

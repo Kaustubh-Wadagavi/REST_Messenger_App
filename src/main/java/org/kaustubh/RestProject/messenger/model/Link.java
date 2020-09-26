@@ -4,6 +4,7 @@ public class Link {
 
 	private String link;
 	private String rel;
+	
 	public String getLink() {
 		return link;
 	}

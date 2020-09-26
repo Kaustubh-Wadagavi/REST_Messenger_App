@@ -31,8 +31,8 @@ public class CommentService {
 	public Comment getComment(long messageId,long commentId) {
 		ErrorMessage errorMessage=new ErrorMessage("Not Found",404,"http://localhost:8080/messenger");
 		Response response = Response.status(Status.NOT_FOUND)
-									.entity(errorMessage)
-									.build();
+				.entity(errorMessage)
+				.build();
 		Message message=messages.get(messageId);
 		if(message==null)
 		{

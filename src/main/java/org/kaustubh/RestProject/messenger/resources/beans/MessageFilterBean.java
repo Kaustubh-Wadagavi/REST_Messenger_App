@@ -3,11 +3,11 @@ package org.kaustubh.RestProject.messenger.resources.beans;
 import javax.ws.rs.QueryParam;
 
 public class MessageFilterBean {
-	
+
 	private @QueryParam("year") int year;
 	private @QueryParam("start") int start;
 	private @QueryParam("size") int size;
-	
+
 	public int getYear() {
 		return year;
 	}
@@ -26,5 +26,5 @@ public class MessageFilterBean {
 	public void setSize(int size) {
 		this.size = size;
 	}
-	
+
 }

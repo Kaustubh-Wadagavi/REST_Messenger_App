@@ -18,10 +18,11 @@ import org.kaustubh.RestProject.messenger.service.ProfileService;
 @Path("/profiles")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+
 public class ProfileResource {
-	
+
 	private ProfileService profileService = new ProfileService();
-	
+
 	@GET
 	public List<Profile> getMessages() {
 		return profileService.getAllProfiles();

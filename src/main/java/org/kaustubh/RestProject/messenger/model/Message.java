@@ -18,7 +18,7 @@ public class Message {
 	private String author;
 	private Map<Long, Comment> comments = new HashMap<>();
 	private List<Link> links = new ArrayList<>();
-	
+
 	public Message() {
 
 	}
@@ -63,7 +63,7 @@ public class Message {
 	public void setComments(Map<Long, Comment> comments) {
 		this.comments = comments;
 	}
-	
+
 	public List<Link> getLinks() {
 		return links;
 	}
@@ -71,7 +71,7 @@ public class Message {
 	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
-	
+
 	public void addLink(String url, String rel)
 	{
 		Link link=new Link();
