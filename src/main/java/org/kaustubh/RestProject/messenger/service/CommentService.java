@@ -4,8 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
 import org.kaustubh.RestProject.messenger.database.DatabaseClass;
 import org.kaustubh.RestProject.messenger.model.Comment;
+import org.kaustubh.RestProject.messenger.model.ErrorMessage;
 import org.kaustubh.RestProject.messenger.model.Message;
 
 public class CommentService {
@@ -23,18 +29,21 @@ public class CommentService {
 	}
 
 	public Comment getComment(long messageId,long commentId) {
-		//ErrorMessage errorMessage=new ErrorMessage("Not Found",404,"http://localhost:8080/messenger");
+		ErrorMessage errorMessage=new ErrorMessage("Not Found",404,"http://localhost:8080/messenger");
+		Response response = Response.status(Status.NOT_FOUND)
+									.entity(errorMessage)
+									.build();
 		Message message=messages.get(messageId);
-		/*if(message==null)
+		if(message==null)
 		{
-			throw new WebApplicationException(Response.status(Status.NOT_FOUND).entity(errorMessage).build());
-		}*/
+			throw new WebApplicationException(response);
+		}
 		Map<Long,Comment> comments=message.getComments();
 		Comment comment= comments.get(commentId);
-		/*if(comment==null)
+		if(comment==null)
 		{
-			throw new WebApplicationException(Response.status(Status.NOT_FOUND).entity(errorMessage).build());
-		}*/
+			throw new NotFoundException(response);
+		}
 		return comment;
 	}
 
